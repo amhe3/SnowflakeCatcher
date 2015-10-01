@@ -1,12 +1,11 @@
 Snowflake[] bob; //make rooms
-int screenSize = 400; //fix: some snow stop mid-air when mousePressed
 
 void setup()
 {
   //your code here
   background(0);
-  size(screenSize, screenSize);
-  bob = new Snowflake[200];
+  size(400, 400);
+  bob = new Snowflake[200]; // edit screenSize = 400!!!!!!
   for(int i = 0; i < bob.length; i++)
   {
     bob[i] = new Snowflake(); //make snowflakes
@@ -50,7 +49,7 @@ class Snowflake
   }
   void lookDown()
   {
-    if((y < screenSize && y > 0) && ((get(x,y+snowSize+2) != color(0, 0, 0))))
+    if((y < screenSize && y > 0) && ((get(x,y+9) != color(0, 0, 0))))
     {
       isMoving = false;
     }

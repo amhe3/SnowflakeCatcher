@@ -5,7 +5,7 @@ void setup()
   //your code here
   background(0);
   size(400, 400);
-  bob = new Snowflake[200]; // edit screenSize = 400!!!!!!
+  bob = new Snowflake[350]; // edit screenSize = 400!!!!!!
   for(int i = 0; i < bob.length; i++)
   {
     bob[i] = new Snowflake(); //make snowflakes
@@ -37,19 +37,21 @@ class Snowflake
   Snowflake()
   {
     //class member variable initializations
-    x = (int) (Math.random()*screenSize);
-    y = (int) (Math.random()*screenSize)-8;
+    x = (int) (Math.random()*400);
+    y = (int) (Math.random()*400)-10;
     isMoving = true;
-    snowSize = 8;
   }
   void show()
   {
-    fill(255);
-    ellipse(x, y, snowSize, snowSize);
+    stroke(255);
+    line(x, y-3, x, y+3);  // lines for the snowflake
+    line(x-3, y, x+3, y);
+    line(x-3, y+3, x+3, y-3);
+    line(x+3, y-3, x-3, y+3);
   }
   void lookDown()
   {
-    if((y < screenSize && y > 0) && ((get(x,y+9) != color(0, 0, 0))))
+    if((y < 400 && y > 0) && ((get(x,y+9) != color(0, 0, 0))))
     {
       isMoving = false;
     }
@@ -58,8 +60,9 @@ class Snowflake
   }
   void erase()
   {
+    stroke(0, 0, 0);
     fill(0);
-    ellipse(x, y, snowSize+2, snowSize +2);
+    ellipse(x, y, 10, 10);
   }
   void move()
   {
@@ -70,10 +73,10 @@ class Snowflake
   }
   void wrap()
   {
-    if(y == screenSize-snowSize-2)
+    if(y == 390)
     {
       y = 0;
-      x = (int) (Math.random()*screenSize);
+      x = (int) (Math.random()*400);
     }
   }
 }

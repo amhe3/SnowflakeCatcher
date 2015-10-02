@@ -5,7 +5,7 @@ void setup()
   //your code here
   background(0);
   size(400, 400);
-  bob = new Snowflake[350]; // edit screenSize = 400!!!!!!
+  bob = new Snowflake[300]; // edit screenSize = 400!!!!!!
   for(int i = 0; i < bob.length; i++)
   {
     bob[i] = new Snowflake(); //make snowflakes
